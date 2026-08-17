@@ -1,0 +1,12 @@
+name: 'soil_science_analytics'
+version: '1.0.0'
+config-version: 2
+
+profile: 'soil_science_local'
+
+models:
+  soil_science_analytics:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table

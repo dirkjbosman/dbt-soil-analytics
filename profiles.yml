@@ -1,0 +1,7 @@
+soil_science_local:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "soil_analytics.duckdb"
+      threads: 4

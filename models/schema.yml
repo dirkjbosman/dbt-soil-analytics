@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: fct_soil_health_metrics
+    description: Core analytical fact table evaluating soil health.
+    columns:
+      - name: sample_id
+        tests:
+          - unique
+          - not_null
+      - name: ph_level
+        tests:
+          - not_null
+      - name: compaction_risk
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['High Restriction (Compacted)', 'Moderate', 'Ideal']

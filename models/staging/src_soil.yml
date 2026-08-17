@@ -1,0 +1,7 @@
+version: 2
+
+sources:
+- name: raw_soil
+  tables:
+  - name: raw_soil_samples
+    identifier: data/raw_soil_samples.csv
