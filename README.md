@@ -20,6 +20,10 @@ Agricultural data is often trapped in fragmented spreadsheets, making it difficu
 ---
 
 ## 📂 Project Structure
+
+The rough project structure looks as follows:
+
+```text
 dbt-soil-analytics/
 ├── data/
 │   └── raw_soil_samples.csv       # Raw field sample inputs (100 records)
@@ -35,6 +39,7 @@ dbt-soil-analytics/
 ├── dbt_project.yml                # dbt configuration
 ├── profiles.yml                   # DuckDB local adapter settings
 └── pyproject.toml                 # Python project dependencies
+```
 
 ---
 
