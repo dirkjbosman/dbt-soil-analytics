@@ -17,6 +17,24 @@ Agricultural data is often trapped in fragmented spreadsheets, making it difficu
 * **Package/Env Manager:** [Astral uv](https://github.com/astral-sh/uv)
 * **Visualization Layer:** [Streamlit](https://streamlit.io/) & [Plotly](https://plotly.com/)
 
+### dbt Architecture & Modeling Strategy
+
+#### How the dbt Pipeline Was Built
+The pipeline follows a strict layered analytics engineering pattern:
+- Staging Layer (`stg_soil_samples.sql`): A lightweight view layer that directly references the raw CSV source (`src_soil.yml`). It handles column standardization, type casting, and light data cleaning.
+- Dimension Table (`dim_soil_locations.sql`): A table materialization built to isolate static spatial attributes (such as **region**, **latitude**, and **longitude**) mapped to unique location codes.
+- Fact Table (`fct_soil_health_metrics.sql`): A table materialization designed to capture transactional agronomic metrics (such as **ph_level**, **organic_matter_pct**, and **nutrient statuses**) tied back to sample IDs and collection dates.
+
+#### Why It Was Modeled This Way (Decision Rationale)
+- Star Schema Separation: Separating spatial dimensions (**dim_soil_locations**) from numerical metrics (**fct_soil_health_metrics**) avoids data duplication, ensuring that metadata changes to a region don't require rewriting observation history.
+- Declarative Assertions: Built-in dbt tests (`schema.yml`) enforce strict data quality rules (like non-null **sample_id** constraints and accepted values for acidity classes) right inside the build cycle.
+
+#### The Benefits of This Approach
+- Modularity & Reusability: Downstream visualization tools (like Streamlit or BI layers) query clean, dependable marts rather than messy raw spreadsheets.
+- Performance: Combining dbt with DuckDB pre-calculates transforms locally into columnar storage, rendering dashboard queries instantaneously.
+- Maintainability: Clear separation of concerns means business logic changes only need to be updated in a single model file.
+
+
 ---
 
 ## 📂 Project Structure
@@ -49,6 +67,10 @@ The interactive Streamlit dashboard provides two core analytical views:
 
 1. **pH Level Distribution by Region (Box Plot):** Displays the statistical spread, median, and outlier pH metrics across various agricultural regions (e.g., North Plains, River Valley, Highlands), allowing teams to quickly identify overly acidic or alkaline zones.
 2. **Organic Matter vs. Acidity Class (Distribution & Scatter):** Cross-references soil organic matter percentages against classified acidity tiers to evaluate biological fertility alongside chemical composition.
+
+Note: Dashboards are not only just for monitoring, but also to derive insights from. In this particular case, based on your 100-sample dashboard distribution; 
+- The River Valley region exhibits a significantly lower average pH level (averaging near 5.2, falling largely into Strongly Acidic territory) compared to the Western Plateau (averaging near 7.5, classifying as Alkaline). 
+- Furthermore, neutral soils in this dataset exhibit the highest variance in organic matter content (spanning from 1.5% up to 5.4%), indicating that biological fertility varies widely independent of neutral chemical balances.
 
 ### Dashboard Previews
 
