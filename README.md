@@ -118,3 +118,39 @@ Open http://localhost:8501 in your browser to interact with regional filters and
 - Incremental Transformations: Refactor fact tables to leverage incremental materialization strategies for high-frequency IoT sensor data streams.
 
 
+### 5. Bonus Section
+
+If you feel you want to go on step further and actually collect your own soil samples to analyze. I prepared a list of affordable analytical devices, which would assist you to measure and collect data regarding your soil. Now, these devices are not nearly as advanced as NIR or Mass Spectrometers, but it will get you very far. I also just wanted to disclose that these are paid referral urls. If you are based outside of the EU, you can just search if a similar device is listed in your country of origin. Have fun and share with me any results if you get them :)
+
+
+#### 5.1. Garden Tutor Soil pH Test Strips Kit
+
+* **Price Range:** €16
+* **What it measures:** Wide-range soil acidity and alkalinity (pH) using indicator strips.
+* **Search Links:** [Amazon DE](https://link.amazon/B0iUpD5Q1)
+
+
+#### 5.2. Atree 4-in-1 Soil Tester
+
+* **Price Range:** €19
+* **What it measures:** Digital soil pH, moisture, temperature, and environmental sunlight.
+* **Search Links:** [Amazon DE](https://link.amazon/B08rWaZAP)
+
+#### 5.3. MySoil Soil Test Kit (Mail-In Lab)
+
+* **Price Range:** €25
+* **What it measures:** Professional laboratory analysis of soil pH and major/minor macronutrients (NPK).
+* **Search Links:** [Amazon DE](https://link.amazon/B09Z5sypL)
+
+#### 5.4. Luster Leaf Rapitest Soil Test Kit
+
+* **Price Range:** €58
+* **What it measures:** Soil pH and major macronutrients (NPK) via chemical color capsules.
+* **Search Links:** [Amazon DE](https://link.amazon/B04iF4ym6)
+
+
+#### 5.5. LaMotte Garden Guide Soil Test Kit
+
+* **Price Range:** €65
+* **What it measures:** Professional-grade octet-comparator testing for pH, Nitrogen, Phosphorus, and Potassium.
+* **Search Links:** [Amazon DE](https://link.amazon/B031I91Qw)
